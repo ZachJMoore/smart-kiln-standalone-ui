@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import {Route, Link} from "react-router-dom"
+
+
 import Kiln from '../lib/kiln';
 let kiln = new Kiln()
 
@@ -36,15 +39,46 @@ class App extends Component {
     this.updatePackage()
     this.updateSchedules()
 
-    setInterval(this.updatePackage, 1000)
+    setInterval(this.updatePackage, 60000)
   }
 
   render() {
-    return (
-      <div className="App">
-        <h1>Temperature: {this.state.kiln.temperature}</h1>
+    return <>
+      <div className="menu">
+        <div className="temperature">{this.state.kiln.temperature}ºF</div>
+        <Link className="graph" to="/">Graph</Link>
+        <Link className="schedules" to="/schedules">Schedules</Link>
+        <Link className="controls" to="/controls">Controls</Link>
+        <Link className="settings" to="/settings">Settings</Link>
       </div>
-    );
+      <div className="body">
+      
+        <Route exact path="/" render={()=>{
+          return (
+            <div>graph</div>
+          )
+        }} />
+
+        <Route exact path="/schedules" render={()=>{
+          return (
+            <div>schedules</div>
+          )
+        }} />
+
+        <Route exact path="/controls" render={()=>{
+          return (
+            <div>controls</div>
+          )
+        }} />
+
+        <Route exact path="/settings" render={()=>{
+          return (
+            <div>settings</div>
+          )
+        }} />
+
+      </div>
+    </>;
   }
 }
 
