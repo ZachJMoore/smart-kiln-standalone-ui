@@ -7,7 +7,8 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      kiln: {}
+      kiln: {},
+      schedules: []
     }
 
     this.updatePackage = () => {
@@ -24,8 +25,8 @@ class App extends Component {
 
       kiln.getSchedules()
         .then(data=>data.json())
-        .then(object => {
-          this.setState({schedules: object})
+        .then(array => {
+          this.setState({schedules: array})
         })
         .catch(console.log)
     }
