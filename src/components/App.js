@@ -17,11 +17,23 @@ class App extends Component {
         .then(object => {
           this.setState({kiln: object})
         })
+        .catch(console.log)
+    }
+
+    this.updateSchedules = () => {
+
+      kiln.getSchedules()
+        .then(data=>data.json())
+        .then(object => {
+          this.setState({schedules: object})
+        })
+        .catch(console.log)
     }
   }
 
   componentDidMount(){
     this.updatePackage()
+    this.updateSchedules()
 
     setInterval(this.updatePackage, 1000)
   }
