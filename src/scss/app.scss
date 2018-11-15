@@ -1,4 +1,5 @@
 $text-primary: #5C5C5C;
+$border-radius-default: 6px;
 
 #root{
   align-self: stretch;
@@ -26,7 +27,7 @@ $text-primary: #5C5C5C;
     align-items: center;
     background: #FFFFFF;
     box-shadow: 0 0 12px 0 rgba(0,0,0,0.20);
-    border-radius: 8px;
+    border-radius: $border-radius-default;
   }
 
   & > a{
@@ -42,7 +43,7 @@ $text-primary: #5C5C5C;
     align-items: center;
     background: #FFFFFF;
     border: 1px solid $text-primary;
-    border-radius: 8px;
+    border-radius: $border-radius-default;
 
     &:hover{
       background: rgba(109, 160, 160, 0.133)
@@ -53,7 +54,47 @@ $text-primary: #5C5C5C;
 .body{
   width: 75%;
   display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.refresh-button{
+  width: 38px;
+  height: 38px;
+  color: $text-primary;
+}
+
+.graph-container{
+  display: flex;
+  align-self: stretch;
+  padding: 10px;
+}
+
+.graph-canvas{
+}
+
+.schedules-container{
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.schedule-item{
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 50%;
+
+  p{
+    margin: 10px;
+  }
+
+  table{
+    margin: 10px;
+  }
 }
