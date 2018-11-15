@@ -11,3 +11,5 @@ $ cd smart-kiln-standalone-ui
 $ yarn
 $ yarn start
 ```
+
+<small>font awesome icon license found <a href="https://fontawesome.com/license">here</a>. No changes were made.</small>
