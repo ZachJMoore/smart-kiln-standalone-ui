@@ -91,7 +91,7 @@ class App extends Component {
 
         <Route exact path="/settings" render={()=>{
           return (
-            <div>settings</div>
+            <div className="settings-container">settings</div>
           )
         }} />
 
