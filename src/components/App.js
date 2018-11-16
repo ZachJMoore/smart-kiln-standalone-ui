@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Route, Link} from "react-router-dom"
 import Graph from "./Graph"
 import Schedules from "./Schedules"
+import Controls from "./Controls"
 
 
 import Kiln from '../lib/kiln';
@@ -23,7 +24,8 @@ class App extends Component {
     super(props);
     this.state = {
       kiln: {
-        temperatureLog: []
+        temperatureLog: [],
+        currentSchedule: {}
       },
       schedules: []
     }
@@ -83,7 +85,7 @@ class App extends Component {
 
         <Route exact path="/controls" render={()=>{
           return (
-            <div>controls</div>
+            <Controls state={this.state}/>
           )
         }} />
 
