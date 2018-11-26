@@ -5,7 +5,7 @@ class Graph extends Component{
     constructor(props){
         super(props);
         this.initChart = (data, labels)=>{
-            var chart = new Chart(this.refs.ctx, {
+            this.chart = new Chart(this.refs.ctx, {
                 type: 'line',
                 data: {
                     labels: labels,
@@ -53,17 +53,20 @@ class Graph extends Component{
 
     componentDidMount(){
         let data = this.props.data.slice().reverse()
-        let label = data.map((temp, index)=>{
+        let labels = data.map((temp, index)=>{
             return `${((index*1)+1)}m`
         }).reverse()
-        this.initChart(data, label)
+        this.initChart(data, labels)
     }
     componentDidUpdate(){
         let data = this.props.data.slice().reverse()
-        let label = data.map((temp, index)=>{
+        let labels = data.map((temp, index)=>{
             return `${(index+1)}m`
         }).reverse()
-        this.initChart(data, label)
+
+        this.chart.data.labels = labels;
+        this.chart.data.datasets[0].data = data
+        this.chart.update();
     }
     render(){
         return (
