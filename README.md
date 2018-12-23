@@ -1,3 +1,5 @@
+This repository is now archived and is no longer maintained. This project has been superseded by https://github.com/ZachJMoore/smart-kiln-hardware
+
 #SmartKiln (standalone ui)
 
 This is the user interface for the <a href="https://github.com/ZachJMoore/smart-kiln-standalone">standalone</a> version of the SmartKiln project.
